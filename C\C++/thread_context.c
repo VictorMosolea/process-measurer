@@ -18,22 +18,15 @@ void *thread_func(void * unused){
     pthread_mutex_lock(&LOCK);
 
     // if not first thread, then signal the second
-    if (COUNTER > 0) {
+    if (COUNTER > 0) 
         pthread_cond_signal(&CONDITION);
-    }
+    
     while(1){
         COUNTER++;
         pthread_cond_wait(&CONDITION, &LOCK);
         pthread_cond_signal(&CONDITION);
     }
 }
-
-uint64_t time_in_microsec(){
-    struct timeval t;
-    gettimeofday(&t, NULL);
-    return ((uint64_t)t.tv_sec * 1000000 + (uint64_t)t.tv_usec);
-}
-
 
 int main(int argc,char ** argv){
     int64_t start;
@@ -55,7 +48,6 @@ int main(int argc,char ** argv){
     pthread_detach(t2);
 
     // get start time and fire away
-    start_time = time_in_microsec();
     pthread_mutex_unlock(&START);
 
     // Wait for about a second
@@ -64,10 +56,7 @@ int main(int argc,char ** argv){
     // Stop both threads
     pthread_mutex_lock(&LOCK);
 
-    end_time = time_in_microsec();
 
-    // Correct the number of thread switches accordingly
-    COUNTER = ((uint64_t)COUNTER * 1000000) / (end_time - start_time);
     printf("Number of thread switches in about one second was %lu\n", COUNTER);
     return 0;
 }
