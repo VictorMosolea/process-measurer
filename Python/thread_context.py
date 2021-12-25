@@ -10,14 +10,14 @@ def producer():
         sem_producer.acquire()
         global COUNTER
         COUNTER += 1
-        sem_consumer.release();
+        sem_consumer.release()
 
 def consumer():
     while(True):
         sem_consumer.acquire()
         global COUNTER
         COUNTER += 1
-        sem_producer.release();
+        sem_producer.release()
 
 
 t1 = Thread(target=producer, daemon=True)
