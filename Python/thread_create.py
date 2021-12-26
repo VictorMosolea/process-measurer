@@ -11,13 +11,17 @@ def time_in_microsec():
 def thread_func():
     pass
 
+def main():
+    start_time = time_in_microsec()
 
-start_time = time_in_microsec()
+    t = [0] * n 
+    for i in range(n):
+        t[i] = Thread(target=thread_func)
 
-t = [0] * n 
-for i in range(n):
-    t[i] = Thread(target=thread_func)
+    end_time = time_in_microsec()
 
-end_time = time_in_microsec()
+    print(end_time-start_time)
 
-print(end_time-start_time)
+
+if __name__ == '__main__':
+    main()

@@ -3,6 +3,10 @@ arr = [1407093996, 1114626733, 1684580180, 1930235818, 1783582846, 1741384123, 1
  
 import random
 
-for _ in range(500):
-    x = arr[random.randint(0, len(arr) - 1)]
+def main():
+    for _ in range(500):
+        x = arr[random.randint(0, len(arr) - 1)]
     # print(x)
+
+if __name__ == '__main__':
+    main()

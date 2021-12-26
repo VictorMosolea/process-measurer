@@ -35,6 +35,7 @@ def read_integers(filename):
             if index == 1:
                 return [int(x) for x in line.split()]
     return []
+	
 def main():
     arr = read_integers('../data/radix_sort_data.txt')
     radixSort(arr)
@@ -43,6 +44,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-
-# This code is contributed by Mohit Kumra
-# Edited by Patrick Gallagher

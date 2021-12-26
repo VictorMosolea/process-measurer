@@ -19,12 +19,15 @@ def consumer():
         COUNTER += 1
         sem_producer.release()
 
+def main():
+    t1 = Thread(target=producer, daemon=True)
+    t2 = Thread(target=consumer, daemon=True)
 
-t1 = Thread(target=producer, daemon=True)
-t2 = Thread(target=consumer, daemon=True)
+    t1.start()
+    t2.start()
 
-t1.start()
-t2.start()
+    sleep(1)
+    print(COUNTER)
 
-sleep(1)
-print(COUNTER)
+if __name__ == '__main__':
+    main()
