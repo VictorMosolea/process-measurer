@@ -4,16 +4,10 @@
 #include <pthread.h>
 #include <sys/time.h>
 #include <unistd.h>
+#include "timing.h"
 
 int n = 100;
 void *thread_func(void * unused){}
-
-uint64_t time_in_microsec(){
-    struct timeval t;
-    gettimeofday(&t, NULL);
-    return ((uint64_t)t.tv_sec * 1000000 + (uint64_t)t.tv_usec);
-}
-
 
 int main(int argc,char ** argv){
     int64_t start;
@@ -26,6 +20,6 @@ int main(int argc,char ** argv){
     }
     end_time = time_in_microsec();
 
-    printf("%ld\n", end_time-start_time);
+    printf("%ld\n", end_time - start_time);
     return 0;
 }

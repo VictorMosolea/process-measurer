@@ -1,3 +1,6 @@
+from timing import timeit
+
+
 def countingSort(arr, exp1):
 
 	n = len(arr)
@@ -22,6 +25,7 @@ def countingSort(arr, exp1):
 	for i in range(0, len(arr)):
 		arr[i] = output[i]
 
+@timeit
 def radixSort(arr):
 	max1 = max(arr)
 	exp = 1
@@ -39,8 +43,6 @@ def read_integers(filename):
 def main():
     arr = read_integers('../data/radix_sort_data.txt')
     radixSort(arr)
-    for i in range(len(arr)):
-        print(arr[i])
 if __name__ == '__main__':
     main()
 

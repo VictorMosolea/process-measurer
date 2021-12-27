@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "timing.h"
 
 int getMax(int arr[], int n){
 	int mx = arr[0];
@@ -52,8 +53,10 @@ int main() {
         arr[i++] = number;
     }
     input_file.close();
-
+	uint64_t start_time, end_time;
+	start_time = time_in_microsec();
     radixsort(arr, N); 
-    print(arr, N);
+	end_time = time_in_microsec();
+	printf("%ld\n", end_time - start_time);
     return 0; 
 } 

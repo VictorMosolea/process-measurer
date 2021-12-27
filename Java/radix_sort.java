@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.lang.Math;
 
 class radix_sort {
 	static int getMax(int arr[], int n){
@@ -43,7 +42,6 @@ class radix_sort {
 		for (int i = 0; i < n; i++)
 			System.out.print(arr[i] + " ");
 	}
-
 	public static void main(String[] args) throws FileNotFoundException{
         Scanner scanner = new Scanner(new File("../data/radix_sort_data.txt"));
         int N = 0;
@@ -58,7 +56,11 @@ class radix_sort {
             String temp = scanner.next();
             arr[i++] = Integer.parseInt(temp);
         }
+
+		int start_time, end_time;
+		start_time = timing.time_in_microsec();
 		radixsort(arr, N);
-        print(arr, N);
+		end_time = timing.time_in_microsec();
+		System.out.println(end_time - start_time);
 	}
 }
