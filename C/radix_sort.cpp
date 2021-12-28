@@ -44,7 +44,7 @@ void print (int arr[], int n){
 
   
 int main() { 
-    std::ifstream input_file("../data/radix_sort_data.txt");
+    std::ifstream input_file("data/radix_sort_data.txt");
     int N, number;
     input_file >> N;
     int arr[N];
